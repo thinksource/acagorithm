@@ -51,7 +51,7 @@ class ACBuild(object):
             node.setFailure(self.root)
             mid.extend(node.sons)
         
-        while(len(mid)>0):
+        while len(mid) > 0 :
             temp = []
             for node in mid:
                 r = node.parent.failure
@@ -72,7 +72,7 @@ class ACBuild(object):
         index = 0
         mid = self.root
 
-        while index< len(self.text):
+        while index < len(self.text):
             temp = None
             while temp == None and mid != None:
 #                 print(index)
