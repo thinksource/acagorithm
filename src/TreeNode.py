@@ -9,16 +9,16 @@ class TreeNode(object):
     Grammar Tree build via search parameters
     '''
     def __init__(self, parent, ch):
-        self.parent=parent
-        self.ch=ch
-        self.results=[]
-        self.sonsHash={}
-        self.sons=[]
-        self.depth=0
-        self.status=0
-        self.failure=None
-        if(self.parent!= None):
-            self.depth=self.parent.depth+1
+        self.parent = parent
+        self.ch = ch
+        self.results = []
+        self.sonsHash = {}
+        self.sons = []
+        self.depth = 0
+        self.status = 0
+        self.failure = None
+        if(self.parent != None):
+            self.depth = self.parent.depth+1
 
     def addResult(self, result):
         if result not in self.results:
@@ -33,7 +33,7 @@ class TreeNode(object):
     def getSonsString(self):
         re=""
         for i in self.sons:
-            re+=i.ch+", "
+            re += i.ch+", "
         return re[:-2]
     
     def setFailure(self, node):
@@ -51,9 +51,9 @@ class TreeNode(object):
         if self.sons:
             re+="state: {}".format(self.status)+'\n'
             if self.failure:
-                f=self.failure.status
+                f = self.failure.status
             else:
-                f=0
+                f = 0
             re+="root ch: {}, state:{}, level: {}, failure:{}, result:{}".format(self.ch, self.status, self.depth, f, self.results)+"\n"
             re+="child: {}".format(self.getSonsString())+"\n"
             for key, value in self.sonsHash.items():
