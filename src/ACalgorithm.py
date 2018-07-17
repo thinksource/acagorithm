@@ -4,14 +4,14 @@ Created on 16 Jul. 2018
 @author: sheng
 '''
 from TreeNode import TreeNode
-from Cython.Debugger.Tests.TestLibCython import root
+
 
 def getchar(node):
     return node.ch
 
 class ACBuild(object):
     '''
-    classdocs
+    Main class implement Aho–Corasick algorithm
     '''
 
 
@@ -23,9 +23,8 @@ class ACBuild(object):
         self.result={}
         for i in pattens:
             self.result[i]=[]
-        # self.addFailure()
-        # self.acSearch()
-        
+
+    # build goto table and output table    
     def buildGotoTree(self):
         i=0
         self.root=TreeNode(None, '')
@@ -44,11 +43,10 @@ class ACBuild(object):
                 tmp=innerTem
             tmp.addResult(word)
         
+    # build the failure point
     def addFailure(self):
         mid = []
-#         self.root.failure=self.root
         for node in self.root.sons:
-#             print(node.setFailure(self.root).status)
             mid.extend(node.sons)
         
         while(len(mid)>0):
@@ -67,8 +65,7 @@ class ACBuild(object):
                 temp.extend(node.sons)
             mid=temp
             
-#         self.root.failure=self.root
-            
+    #  Search the whole string 
     def acSearch(self):
         index=0
         mid=self.root
