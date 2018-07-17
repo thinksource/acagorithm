@@ -35,12 +35,12 @@ class ACBuild(object):
                 if ch in tmp.sonsHash:
                     innerTem = tmp.sonsHash[ch]
                 else:
-                    newNode= TreeNode(tmp, ch)
+                    newNode = TreeNode(tmp, ch)
                     i += 1
                     newNode.status = i
                     tmp.addSonNode(newNode)
-                    innerTem =newNode
-                tmp=innerTem
+                    innerTem = newNode
+                tmp = innerTem
             tmp.addResult(word)
         
     # build the failure point
@@ -52,13 +52,13 @@ class ACBuild(object):
             mid.extend(node.sons)
         
         while(len(mid)>0):
-            temp=[]
+            temp = []
             for node in mid:
-                r=node.parent.failure
+                r = node.parent.failure
                 while r != None and node.ch not in r.sonsHash:
-                    r=r.failure
+                    r = r.failure
             
-                if r==None:
+                if r == None:
                     node.setFailure(self.root)
                 else:
                     node.setFailure(r.getSonNode(node.ch))
@@ -90,8 +90,8 @@ class ACBuild(object):
             index += 1
         
     def printResult(self):
+        output=r'<No Output>'
         for key, value in self.result.items():
-            output=r'<No Output>'
             f=lambda v: str(v)[1:-1] if(len(v)>0) else output   
             print('{} "{}"'.format(key, f(value)))
 
@@ -113,4 +113,3 @@ class ACBuild(object):
             else:
                 f = 0
             print("{} {} {} {} {}".format(node.ch, node.depth, node.status, f, node.results))
-             
