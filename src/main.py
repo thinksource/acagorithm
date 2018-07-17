@@ -11,7 +11,7 @@ if __name__ == '__main__':
     ac.buildGotoTree()
 
     ac.addFailure()
-    ac.printTree()
+    # ac.printTree()
 
     ac.acSearch()
     ac.printResult()
