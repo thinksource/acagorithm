@@ -5,13 +5,13 @@ Created on 16 Jul. 2018
 '''
 from ACalgorithm import ACBuild
 if __name__ == '__main__':
-    text = "Peter told me that peter the pickle piper piped a pitted pickle before he petered out. Phew!"
-    Pattens = ["Peter", "peter", "pick", "pi", "z", "Peterz"]
+    text = "ushers"
+    Pattens = ["he", "she", "his", "hers"]
     ac = ACBuild(text, Pattens)
     ac.buildGotoTree()
 
     ac.addFailure()
-#     ac.printTree()
+    ac.printTree()
 
     ac.acSearch()
     ac.printResult()

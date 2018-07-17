@@ -46,7 +46,9 @@ class ACBuild(object):
     # build the failure point
     def addFailure(self):
         mid = []
+        
         for node in self.root.sons:
+            node.setFailure(self.root)
             mid.extend(node.sons)
         
         while(len(mid)>0):
