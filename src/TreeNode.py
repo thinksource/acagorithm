@@ -2,11 +2,12 @@
 Created on 16 Jul. 2018
 
 @author: sheng
+
 '''
 
 class TreeNode(object):
     '''
-    Grammar Tree build via search parameters
+    Grammar prefix Tree build via search parameters
     '''
     def __init__(self, parent, ch):
         self.parent = parent
