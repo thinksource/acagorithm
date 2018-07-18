@@ -110,8 +110,5 @@ class ACBuild(object):
             
         sorted(nodelist, key=getchar)
         for node in nodelist:
-            if node.failure:
-                f = node.failure.status
-            else:
-                f = 0
-            print("{} {} {} {} {}".format(node.ch, node.depth, node.status, f, node.results))
+            f=lambda x : x.failure.status if x.failure else 0
+            print("{} {} {} {} {}".format(node.ch, node.depth, node.status, f(node), node.results))
