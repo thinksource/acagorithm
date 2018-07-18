@@ -43,13 +43,13 @@ class ACBuild(object):
                 tmp = innerTem
             tmp.addResult(word)
         
-    # build the failure point
+    # build the failure points
     def addFailure(self):
         mid = []
         
-        for node in self.root.sons:
+        for node in self.root.sonsHash.values():
             node.setFailure(self.root)
-            mid.extend(node.sons)
+            mid.extend(node.sonsHash.values())
         
         while len(mid) > 0 :
             temp = []
@@ -64,7 +64,7 @@ class ACBuild(object):
                     node.setFailure(r.getSonNode(node.ch))
                     for result in node.failure.results:
                         node.addResult(result)
-                temp.extend(node.sons)
+                temp.extend(node.sonsHash.values())
             mid=temp
             
     #  Search the whole string 
@@ -102,7 +102,7 @@ class ACBuild(object):
         while len(nodes)>0:
             temp = []
             for node in nodes:
-                temp.extend(node.sons)
+                temp.extend(node.sonsHash.values())
                 nodelist.append(node)
             nodes = temp
             

@@ -13,7 +13,7 @@ class TreeNode(object):
         self.ch = ch
         self.results = []
         self.sonsHash = {}
-        self.sons = []
+        # self.sons = []
         self.depth = 0
         self.status = 0
         self.failure = None
@@ -27,13 +27,13 @@ class TreeNode(object):
     
     def addSonNode(self, node):
         self.sonsHash[node.ch] = node
-        self.sons.append(node)
+        # self.sons.append(node)
         
         
     def getSonsString(self):
         re=""
-        for i in self.sons:
-            re += i.ch+", "
+        for i in self.sonsHash:
+            re += i+", "
         return re[:-2]
     
     def setFailure(self, node):
@@ -48,7 +48,7 @@ class TreeNode(object):
        
     def __str__(self):
         re=""
-        if self.sons:
+        if self.sonsHash:
             re+="state: {}".format(self.status)+'\n'
             if self.failure:
                 f = self.failure.status
