@@ -30,7 +30,6 @@ class TreeNode(object):
         self.sonsHash[node.ch] = node
         # self.sons.append(node)
         
-        
     def getSonsString(self):
         re=""
         for i in self.sonsHash:
