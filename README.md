@@ -1,7 +1,8 @@
 # README
 ============
 
-This is fast string algorithm base on Aho–Corasick algorithm.[link](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
+This is fast string match algorithm base on Aho–Corasick algorithm.[link](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm)
+
 which is extends of KMP algorithm and this algorithm also base on finite-state machine.
 
 ## How to run

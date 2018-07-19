@@ -13,6 +13,7 @@ class AlgorithmTest(unittest.TestCase):
         ac.buildGotoTree()
         ac.addFailure()
         ac.acSearch()
+        ac.printResult()
         self.assertEqual(ac.result["he"], [3])
         self.assertEqual(ac.result["she"],[2])
         self.assertEqual(len(ac.result["his"]),0)
