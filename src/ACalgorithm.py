@@ -20,7 +20,6 @@ class ACBuild(object):
     def __init__(self, text, pattens):
         self.text=text.lower()
         self.pattens=pattens
-        self.buildGotoTree()
         self.root = None
         self.result = {}
         for i in pattens:
