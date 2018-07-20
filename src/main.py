@@ -8,12 +8,12 @@ if __name__ == '__main__':
     text = "Peter told me that peter the pickle piper piped a pitted pickle before he petered out. Phew!"
     Pattens = ["Peter", "peter", "pick", "pi", "z", "Peterz"]
 
-    ac = ACBuild(text, Pattens)
+    ac = ACBuild(Pattens)
     ac.buildGotoTree()
 
     ac.addFailure()
     ac.printTree()
 
-    ac.acSearch()
+    ac.acSearch(text)
     ac.printResult()
     

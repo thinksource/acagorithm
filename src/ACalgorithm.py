@@ -15,14 +15,9 @@ class ACBuild(object):
     '''
     Main class implement Aho–Corasick algorithm
     '''
-    def __init__(self, text, pattens):
-        
-        self.text=text.lower()
-        self.pattens=pattens
+    def __init__(self, pattens):
+        self.pattens = pattens
         self.root = None
-        self.result = {}
-        for i in pattens:
-            self.result[i] = []
 
     # build goto table and output table
     # This is build tree from initialization  
@@ -76,17 +71,21 @@ class ACBuild(object):
             
     #  Search the whole string
     # really function of tree search
-    def acSearch(self):
+    def acSearch(self, text):
+        text = text.lower()
+        self.result = {}
+        for i in self.pattens:
+            self.result[i] = []
         index = 0
         mid = self.root
-        while index < len(self.text):
+        while index < len(text):
             temp = None
             while temp == None and mid != None:
-                temp = mid.getSonNode(self.text[index])
+                temp = mid.getSonNode(text[index])
                 #just make sure if they goto root it will jump out
                 if mid == self.root:
                     break
-                # can not find next status of the tree will jump to the failure jump
+                # can not find next status of the tree will jump to the failure 
                 if temp == None:
                     mid = mid.failure
             if temp != None:
@@ -97,9 +96,9 @@ class ACBuild(object):
             index += 1
         
     def printResult(self):
-        output=r'<No Output>'
+        output = r'<No Output>'
         for key, value in self.result.items():
-            f=lambda v: str(v)[1:-1] if(len(v)>0) else output   
+            f = lambda v: str(v)[1:-1] if(len(v)>0) else output   
             print('{} "{}"'.format(key, f(value)))
 
     # print tree structure
@@ -115,5 +114,5 @@ class ACBuild(object):
             
         sorted(nodelist, key=getchar)
         for node in nodelist:
-            f=lambda x : x.failure.status if x.failure else 0
+            f = lambda x : x.failure.status if x.failure else 0
             print("{} {} {} {} {}".format(node.ch, node.depth, node.status, f(node), node.results))

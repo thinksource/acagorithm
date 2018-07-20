@@ -9,10 +9,10 @@ class AlgorithmTest(unittest.TestCase):
         # self.ac = ACBuild(text, Pattens)
 
     def test_build(self):
-        ac = ACBuild(self.text, self.param)
+        ac = ACBuild(self.param)
         ac.buildGotoTree()
         ac.addFailure()
-        ac.acSearch()
+        ac.acSearch(self.text)
         ac.printResult()
         self.assertEqual(ac.result["he"], [3])
         self.assertEqual(ac.result["she"],[2])
