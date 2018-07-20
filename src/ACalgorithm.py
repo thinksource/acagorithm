@@ -20,7 +20,7 @@ class ACBuild(object):
         self.root = None
 
     # build goto table and output table
-    # This is build tree from initialization  
+    # This function build finite-state machine
     def buildGotoTree(self):
         i = 0
         self.root=TreeNode(None, '')
@@ -42,7 +42,7 @@ class ACBuild(object):
             # at the word end it will add the word to the finished word list
             tmp.addResult(word)
         
-    # build the failure points
+    # build the failure jumps of finite state machines
     def addFailure(self):
         mid = []
         # level travel of TreeNode (level 1 and level 2)
@@ -69,7 +69,7 @@ class ACBuild(object):
                 temp.extend(node.sonsHash.values())
             mid=temp
             
-    #  Search the whole string
+    # Search the whole string
     # really function of tree search
     def acSearch(self, text):
         text = text.lower()

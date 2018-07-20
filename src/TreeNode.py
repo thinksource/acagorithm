@@ -7,7 +7,7 @@ Created on 16 Jul. 2018
 
 class TreeNode(object):
     '''
-    Grammar prefix Tree build via search parameters
+    Grammar prefix Tree is build via search parameters
     tree node example:
     -----------------------------------------------------------------------
     | char | status | sons's hash table | failure jump status | finished(result) table including all 
