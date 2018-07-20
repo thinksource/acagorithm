@@ -8,6 +8,11 @@ Created on 16 Jul. 2018
 class TreeNode(object):
     '''
     Grammar prefix Tree build via search parameters
+    tree node example:
+    -----------------------------------------------------------------------
+    | char | status | sons's hash table | failure jump status | finished(result) table including all 
+    ------------------------------------------------------------------------
+    the result table contain all words with special char end 
     '''
     def __init__(self, parent, ch):
         self.parent = parent
@@ -30,11 +35,11 @@ class TreeNode(object):
         self.sonsHash[node.ch] = node
         # self.sons.append(node)
         
-    def getSonsString(self):
-        re=""
-        for i in self.sonsHash:
-            re += i+", "
-        return re[:-2]
+    # def getSonsString(self):
+    #     re=""
+    #     for i in self.sonsHash:
+    #         re += i+", "
+    #     return re[:-2]
     
     def setFailure(self, node):
         self.failure=node
@@ -46,20 +51,20 @@ class TreeNode(object):
         else:
             return None
        
-    def __str__(self):
-        re=""
-        if self.sonsHash:
-            re+="state: {}".format(self.status)+'\n'
-            if self.failure:
-                f = self.failure.status
-            else:
-                f = 0
-            re+="root ch: {}, state:{}, level: {}, failure:{}, result:{}".format(self.ch, self.status, self.depth, f, self.results)+"\n"
-            re+="child: {}".format(self.getSonsString())+"\n"
-            for key, value in self.sonsHash.items():
-                re+="key: {}".format(key)+"\n"
-                re+="value: {}".format(value.__str__())+"\n"
+    # def __str__(self):
+    #     re=""
+    #     if self.sonsHash:
+    #         re+="state: {}".format(self.status)+'\n'
+    #         if self.failure:
+    #             f = self.failure.status
+    #         else:
+    #             f = 0
+    #         re+="root ch: {}, state:{}, level: {}, failure:{}, result:{}".format(self.ch, self.status, self.depth, f, self.results)+"\n"
+    #         re+="child: {}".format(self.getSonsString())+"\n"
+    #         for key, value in self.sonsHash.items():
+    #             re+="key: {}".format(key)+"\n"
+    #             re+="value: {}".format(value.__str__())+"\n"
             
-            return re
-        else:
-            return "empty"
+    #         return re
+    #     else:
+    #         return "empty"
