@@ -2,7 +2,7 @@
 Created on 16 Jul. 2018
 
 @author: sheng
-@algorith: Aho-Corasick
+@algorithm: Aho-Corasick
 https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm
 '''
 from TreeNode import TreeNode
